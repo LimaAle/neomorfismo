@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:neumophism/constants.dart';
 
+import 'constants.dart';
+import 'constants.dart';
+
 class CustomButton extends StatelessWidget {
   double radius;
   final Widget icon;
@@ -10,21 +13,24 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(children: <Widget>[
-      Container(
-        width: radius * 2,
-        height: radius * 2,
-        decoration: BoxDecoration(
-            color: background,
-            borderRadius: BorderRadius.circular(radius),
-            boxShadow: [
-              BoxShadow(
-                  color: Colors.black26, offset: Offset(4, 4), blurRadius: 2),
-              BoxShadow(
-                  color: Colors.white, offset: Offset(-4, -4), blurRadius: 2),
-            ]),
-      ),
-      Positioned.fill(child: icon),
-    ]);
+    return Padding(
+      padding: EdgeInsets.all(radius/2),
+      child: Stack(children: <Widget>[
+        Container(
+          width: radius * 2,
+          height: radius * 2,
+          decoration: BoxDecoration(
+              color: background,
+              borderRadius: BorderRadius.circular(radius),
+              boxShadow: [
+                BoxShadow(
+                    color: shadowColor, offset: Offset(8, 6), blurRadius: 12),
+                BoxShadow(
+                    color: lightShadowColor, offset: Offset(-8, -6), blurRadius: 12),
+              ]),
+        ),
+        Positioned.fill(child: icon),
+      ]),
+    );
   }
 }
